@@ -2,7 +2,7 @@ const fs = require('fs');
 const http = require('http');
 const https = require('https');
 
-const port = 3000;
+const port = process.env.PORT || 3000
 
 const server = http.createServer();
 server.on("request", request_handler);
