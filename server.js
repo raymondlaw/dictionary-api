@@ -30,7 +30,6 @@ function request_handler(req, res) {
         const word = user_input.get("word");
         if (word === null || word === "") {
             send_results("", "", 400, res);
-
         }
         else {
             call_dictionary_service(word, res);
@@ -43,7 +42,6 @@ function request_handler(req, res) {
 }
 
 // --- Dictionary Service ---
-
 function call_dictionary_service(word, res) {
     const dictionary_url = `${dictionary_api_base}/${encodeURIComponent(word)}`;
     const dictionary_api = https.request(dictionary_url);
@@ -58,7 +56,6 @@ function call_dictionary_service(word, res) {
 }
 
 // --- Utility Function ---
-
 function process_http_stream(stream, callback, ...args) {
     const {statusCode: status_code} = stream;
     let body = "";
@@ -69,7 +66,6 @@ function process_http_stream(stream, callback, ...args) {
 }
 
 // --- Parse Results ---
-
 function parse_results(data, status_code, res) {
     let word = "";
     let definition = "";
